@@ -13,7 +13,19 @@
   </center>
   <div class="card-body rounded-bottom">
     <p class="card-text">
-  
+    <h1>{{ Auth::user()->name }}</h1>
+@if($direccion)
+<p>{{ $direccion->estadoDir }}</p>
+<p>{{ $direccion->municipioDir }}</p>
+<p>{{ $direccion->coloniaDir }}</p>
+<p>{{ $direccion->calleDir }}</p>
+<p>{{ $direccion->nExteriorDir }}</p>
+<p>{{ $direccion->nInteriorDir }}</p>
+<p>{{ $direccion->codigoPostalDir }}</p>
+@else
+    <p>No se encontró la dirección del usuario.</p>
+@endif
+
     </p>
   </div>
 </div>

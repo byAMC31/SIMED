@@ -85,4 +85,15 @@ class User extends Authenticatable
         return 'user/profile';
     }
 
+
+    public function estudiante()
+    {
+        return $this->hasOne(Estudiante::class, 'id', 'id');
+    }
+
+
+
+
+
+
 }

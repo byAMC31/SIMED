@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DireccionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +28,11 @@ Route::middleware([
 });
 
 
-Route::get('/expediente', function () {
-    return view('expediente');
-})->name('expediente');
+//Route::get('/expediente', function () {
+  //  return view('expediente');
+//})->name('expediente');
 
+
+
+Route::get('/expediente', [DireccionController::class, 'show'])->name('expediente.show');
 
