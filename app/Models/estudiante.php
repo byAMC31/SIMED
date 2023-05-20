@@ -25,6 +25,8 @@ class Estudiante extends Model
         'sexoAI',
         'nTelAI',
         'nssAI',
+        'nControl',
+
         // Agrega aquí cualquier otro campo que quieras que sea asignable en masa
     ];
 

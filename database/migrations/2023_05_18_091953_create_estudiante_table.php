@@ -17,9 +17,9 @@ class CreateEstudianteTable extends Migration
             $table->string('appAI')->nullable();
             $table->string('apmAI')->nullable();
             $table->string('sexoAI')->nullable();
-            $table->integer('nTelAI')->nullable();
-            $table->integer('nssAI')->nullable();
-
+            $table->string('nTelAI')->nullable();
+            $table->string('nssAI')->nullable();
+            $table->string('nControl')->nullable();
             $table->foreign('id')  // Cambiado de 'user_id' a 'id_usuario'
                 ->references('id')
                 ->on('users')
