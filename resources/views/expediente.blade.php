@@ -8,7 +8,7 @@
 @section('content')
 <br>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="card shadow rounded" style="width: 20rem;">
             <center>
                 <h5 class="card-header custom-car-header rounded-top">Información general</h5>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="card shadow rounded" style="width: 20rem;">
             <center>
                 <h5 class="card-header custom-car-header rounded-top">Dirección</h5>
@@ -53,6 +53,33 @@
             </div>
         </div>
     </div>
+
+
+
+    <div class="col-md-4">
+        <div class="card shadow rounded" style="width: 20rem;">
+            <center>
+                <h5 class="card-header custom-car-header rounded-top">Información médica</h5>
+            </center>
+            <div class="card-body rounded-bottom">
+                <p class="card-text">
+                <p><label>NSS: </label> {{ $estudiante->nssAI}}</p>
+
+                <p><label>Tipo de sangre: </label> {{ $expediente->tipoSangreEx}}</p>
+                <p><label>Alergias: </label> {{ $expediente->alergiasEx}}</p>
+                <p><label>notasMedicasEx: </label> {{ $expediente->notasMedicasEx}}</p>
+                <a href="{{ route('informacionMedica.edit') }}" class="btn btn-info">Editar información médica</a>
+
+
+                  
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </div>
 @stop
 

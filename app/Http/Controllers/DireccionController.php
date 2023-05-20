@@ -20,8 +20,9 @@ class DireccionController extends Controller
     $user = Auth::user(); // Obteniendo el usuario actualmente autenticado
     $direccion = $user->estudiante->direccion; // Accediendo a la dirección a través de la relación estudiante
     $estudiante = $user->estudiante; // Accediendo al estudiante
+    $expediente = $user->estudiante->expediente; // Accediendo a la dirección a través de la relación 
 
-    return view('expediente', compact('direccion', 'estudiante'));
+    return view('expediente', compact('direccion', 'expediente','estudiante'));
 }
 
 

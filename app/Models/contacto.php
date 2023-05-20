@@ -5,51 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estudiante extends Model
+class contacto extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_contacto';
 
     // Si el nombre de la tabla no es el plural del nombre de la clase en inglés, 
     // necesitas definir la propiedad $table con el nombre de la tabla
-    protected $table = 'estudiante';
+    protected $table = 'contacto';
 
     // Si los timestamps (created_at y updated_at) no son necesarios en tu tabla, 
     // añade la siguiente línea
     public $timestamps = false;
 
     protected $fillable = [
-        'appAI',
-        'apmAI',
-        'sexoAI',
-        'nTelAI',
-        'nssAI',
-        'nControl',
-
-        // Agrega aquí cualquier otro campo que quieras que sea asignable en masa
+        'nombreC',
+        'appC',
+        'apmC',
+        'relacionAlumnoC',
+        'nTelC',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id', 'id');
-    }
-
-    public function carrera()
-    {
-        return $this->belongsTo(Carrera::class, 'id_carrera', 'id_carrera');
-    }
 
     public function direccion()
     {
         return $this->belongsTo(Direccion::class, 'id_direccion', 'id_direccion');
     }
 
-    public function expediente()
-    {
-        return $this->hasOne(expediente::class, 'id', 'id');
-    }
 
-
-
+    
 }
