@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DireccionController;
+use App\Http\Controllers\EstudianteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,16 @@ Route::middleware([
 
 
 Route::get('/expediente', [DireccionController::class, 'show'])->name('expediente.show');
+
+
+
+Route::get('/expediente/edit', [DireccionController::class, 'edit'])->name('expediente.edit');
+Route::post('/expediente/edit', [DireccionController::class, 'update'])->name('expediente.update');
+
+
+
+
+Route::get('/expediente/usuarioedit', [EstudianteController::class, 'edit'])->name('usuario.edit');
+Route::post('/expediente/usuarioedit', [EstudianteController::class, 'update'])->name('usuario.update');
+
 

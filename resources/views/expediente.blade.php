@@ -7,40 +7,70 @@
 
 @section('content')
 <br>
-<div class="card shadow rounded" style="width: 25rem;">
-<center>
-  <h5 class="card-header custom-car-header rounded-top">Informacion general</h5>
-  </center>
-  <div class="card-body rounded-bottom">
-    <p class="card-text">
-    <h1>{{ Auth::user()->name }}</h1>
-@if($direccion)
-<p>{{ $direccion->estadoDir }}</p>
-<p>{{ $direccion->municipioDir }}</p>
-<p>{{ $direccion->coloniaDir }}</p>
-<p>{{ $direccion->calleDir }}</p>
-<p>{{ $direccion->nExteriorDir }}</p>
-<p>{{ $direccion->nInteriorDir }}</p>
-<p>{{ $direccion->codigoPostalDir }}</p>
-@else
-    <p>No se encontró la dirección del usuario.</p>
-@endif
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow rounded" style="width: 20rem;">
+            <center>
+                <h5 class="card-header custom-car-header rounded-top">Información general</h5>
+            </center>
+            <div class="card-body rounded-bottom">
+                <p class="card-text">
+                    <p><label>Email:</label> {{ Auth::user()->email }}</p>
+                    <p><label>Nombre:</label> {{ Auth::user()->name }}</p>
+                    <p><label>Apellido paterno:</label> {{ $estudiante->appAI}}</p>
+                    <p><label>Apellido materno:</label> {{ $estudiante->apmAI}}</p>
+                    <p><label>Sexo: </label> {{ $estudiante->sexoAI}}</p>
+                    <p><label>Numero de telefono: </label> {{ $estudiante->nTelAI}}</p>
+                    <p><label>Numero de control: </label> {{ $estudiante->nControl}}</p>
 
-    </p>
-  </div>
+                    <a href="{{ route('usuario.edit') }}" class="btn btn-info">Editar datos</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow rounded" style="width: 20rem;">
+            <center>
+                <h5 class="card-header custom-car-header rounded-top">Dirección</h5>
+            </center>
+            <div class="card-body rounded-bottom">
+                <p class="card-text">
+                    @if($direccion)
+                        <p><label>Estado:</label>{{ $direccion->estadoDir }}</p>
+                        <p><label>Municipio:</label> {{ $direccion->municipioDir }}</p>
+                        <p><label>Colonia:</label> {{ $direccion->coloniaDir }}</p>
+                        <p><label>Calle:</label>{{ $direccion->calleDir }}</p>
+                        <p><label>Número exterior:</label>{{ $direccion->nExteriorDir }}</p>
+                        <p><label>Número Interior:</label> {{ $direccion->nInteriorDir }}</p>
+                        <p><label>Codigo postal:</label> {{ $direccion->codigoPostalDir }}</p>
+
+                        <a href="{{ route('expediente.edit') }}" class="btn btn-info">Editar dirección</a>
+
+                    @else
+                        <p>No se encontró la dirección del usuario.</p>
+                    @endif
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 @stop
 
 @section('css')
 <style>
-.custom-car-header {
-  background-color: #A2ECD1; /* Cambiar este valor por el color deseado */
-  color: black; /* Cambiar este valor por el color de texto deseado */
-}
+    .custom-car-header {
+        background-color: #A2ECD1;
+        color: black;
+    }
+
+    p {
+        line-height: .1;
+    }
 </style>
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
 @stop
+
 
