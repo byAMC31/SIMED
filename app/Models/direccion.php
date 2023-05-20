@@ -40,6 +40,10 @@ class Direccion extends Model
         return $this->hasOne(Estudiante::class, 'id_direccion', 'id_direccion');
     }
 
+    public function contacto()
+    {
+        return $this->hasOne(contacto::class, 'id_direccion', 'id_direccion');
+    }
 
 
 }
