@@ -19,10 +19,10 @@ class Consulta extends Model
         'motivoCo',
         'observacionesCo',
         'diagnosticoCo',
-        'id_medico',
-        'id_expediente',
-        'idExamenF',
-        'id_receta',
+        //'id_medico',
+        //'id_expediente',
+       // 'idExamenF',
+       // 'id_receta',
     ];
 
     protected $dates = [
@@ -34,14 +34,14 @@ class Consulta extends Model
     }
 
     public function expediente(){
-        return $this->belongsTo(Expediente::class, 'id_expediente');
+        return $this->belongsTo(expediente::class, 'id_expediente','id_expediente');
     }
 
     public function examenFisico(){
-        return $this->belongsTo(ExamenFisico::class, 'idExamenF');
+        return $this->belongsTo(examenFisico::class, 'idExamenF','idExamenF');
     }
 
     public function receta(){
-        return $this->belongsTo(Receta::class, 'id_receta');
+        return $this->belongsTo(Receta::class, 'id_receta','id_receta');
     }
 }

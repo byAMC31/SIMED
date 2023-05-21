@@ -36,7 +36,8 @@ class expediente extends Model
         return $this->belongsTo(Estudiante::class, 'id', 'id');
     }
 
-    public function consultas(){
-        return $this->hasMany(Consulta::class, 'id_expediente');
+    public function consulta(){
+        return $this->hasMany(Consulta::class, 'id_expediente','id_expediente');
     }
+
 }

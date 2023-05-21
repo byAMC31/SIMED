@@ -27,8 +27,8 @@ class examenFisico extends Model
         'evaluacionSensorialEf',
     ];
 
-    public function consultas(){
-        return $this->hasMany(Consulta::class, 'idExamenF');
+    public function consulta(){
+        return $this->hasMany(Consulta::class, 'idExamenF','idExamenF');
     }
 
 }

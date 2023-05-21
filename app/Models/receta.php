@@ -21,7 +21,8 @@ class Receta extends Model
         return $this->hasMany(MedicamentosRecetados::class, 'id_receta');
     }
 
-    public function consultas(){
-        return $this->hasMany(Consulta::class, 'id_receta');
-    }
+    public function consulta()
+{
+    return $this->belongsTo(Consulta::class, 'id_receta', 'id_receta');
+}
 }

@@ -1,23 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-//use Laravel\Jetstream\Auth;
 
+//use Laravel\Jetstream\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class Consulta extends Controller
-{
+{ 
     
     public function show()
     {
-        $user = Auth::user(); // Obteniendo el usuario actualmente autenticado
-        $direccion = $user->estudiante->direccion; // Accediendo a la dirección a través de la relación estudiante
-        $estudiante = $user->estudiante; // Accediendo al estudiante
-        $expediente = $user->estudiante->expediente; // Accediendo a la dirección a través de la relación 
+        $user = Auth::user();
+        $direccion = $user->estudiante->direccion;
+        $estudiante = $user->estudiante;
+        $expediente = $user->estudiante->expediente;
         $contacto = $user->estudiante->expediente->contacto;
-        return view('consulta', compact('direccion', 'expediente','estudiante','contacto'));
+        $consulta = $user->estudiante->expediente->consulta;
+        foreach ($consulta as $singleConsulta) {
+            $singleConsulta->examenFisico = $singleConsulta->examenFisico;
+            $singleConsulta->receta = $singleConsulta->receta;       
+        }
+        return view('consulta', compact('direccion', 'expediente', 'estudiante', 'contacto', 'consulta'));
     }
+    
+    
+    
     
 
 
