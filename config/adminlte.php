@@ -317,7 +317,7 @@ return [
             'icon' => 'fas fa-fw fa-home'
         ],
        
-        
+       
 
         ['header' => 'SERVICIO MÉDICO'],
 
@@ -334,7 +334,7 @@ return [
         ],
         [
             'text' => 'Consultas',
-            'url'  => 'user/profile',
+            'url'  => 'consulta',
             'icon' => 'fas fa-fw fa-stethoscope'
         ],
         ['header' => 'account_settings'],
@@ -342,6 +342,39 @@ return [
             'text' => 'profile',
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
+        ],
+
+
+        [
+            
+            'text'    => 'Mis datos',
+            'icon' => 'fas fa-fw fa-pencil-alt',
+
+            'submenu' => [
+                [
+                    'icon' => 'fas fa-fw fa-user-edit',
+                    'text' => 'Datos del usuario',
+                    'url'  => 'expediente/usuarioedit',
+                ],
+                [
+                    'icon' => 'fas fa-fw fa-map-marker-alt',
+                    'text' => 'Dirección',
+                    'url'  => 'expediente/edit',
+                ],
+                [
+                    'icon' => 'fas fa-fw fa-notes-medical',
+                    'text' => 'Información médica',
+                    'url'  => 'expediente/expedienteedit',
+                ],
+                [
+                    'icon' => 'fas fa-fw fa-address-card',
+                    'text' => 'Información del contacto',
+                    'url'  => 'expediente/contacto_edit',
+                ],
+                
+                
+                    
+            ],
         ],
         [
             'text' => 'change_password',

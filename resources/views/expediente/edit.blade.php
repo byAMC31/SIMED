@@ -3,6 +3,14 @@
 @section('title', 'Editar direcciòn')
 
 @section('content_header')
+<div class="custom-control custom-switch" align="right">
+    <input type="checkbox" class="custom-control-input" id="darkModeToggle">
+    <label class="custom-control-label" for="darkModeToggle">
+        <span id="darkModeIcon" class="fas fa-moon" style="margin-right:10px;"></span>
+        <span id="darkModeText">Modo oscuro</span>
+    </label>
+</div>
+
 @stop
 
 @section('content')
@@ -77,6 +85,13 @@
     .is-invalid {
         border-color: #ff0000;
     }
+    .dark-mode-text {
+    color: white;
+}
+
+.light-mode-text {
+    color: black;
+}
 </style>
 @stop
 @section('js')
@@ -100,5 +115,40 @@
             alert('Por favor, llena todos los campos requeridos en rojo.');
         }
     }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.querySelector('#darkModeToggle');
+    const body = document.querySelector('body');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    const darkModeText = document.getElementById('darkModeText');
+
+    // Aplica el modo oscuro si la última preferencia del usuario fue el modo oscuro
+    if (localStorage.getItem('darkMode') === 'true') {
+        body.classList.add('dark-mode');
+        darkModeIcon.classList.remove('fas', 'fa-moon');
+        darkModeIcon.classList.add('fas', 'fa-sun');
+        darkModeText.innerText = 'Modo Claro';
+        darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener('change', (event) => {
+        body.classList.toggle('dark-mode');
+
+        // Cambiar el ícono y el texto según el modo
+        if (body.classList.contains('dark-mode')) {
+            darkModeIcon.classList.remove('fas', 'fa-moon');
+            darkModeIcon.classList.add('fas', 'fa-sun');
+            darkModeText.innerText = 'Modo Claro';
+        } else {
+            darkModeIcon.classList.remove('fas', 'fa-sun');
+            darkModeIcon.classList.add('fas', 'fa-moon');
+            darkModeText.innerText = 'Modo oscuro';
+        }
+
+        // Guarda la preferencia del usuario en el almacenamiento local
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+    });
+});
 </script>
 @stop

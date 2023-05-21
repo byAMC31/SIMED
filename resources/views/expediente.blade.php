@@ -3,11 +3,21 @@
 @section('title', 'Expediente')
 
 @section('content_header')
+<div class="custom-control custom-switch" align="right">
+    <input type="checkbox" class="custom-control-input" id="darkModeToggle">
+    <label class="custom-control-label" for="darkModeToggle">
+        <span id="darkModeIcon" class="fas fa-moon" style="margin-right:10px;"></span>
+        <span id="darkModeText">Modo oscuro</span>
+    </label>
+</div>
+
 @stop
 
 @section('content')
-<br>
+
+
 <div class="row">
+  
     <div class="col-md-4">
         <div class="card shadow rounded" style="width: 18rem;">
             <center>
@@ -116,20 +126,10 @@
 @stop
 
 @section('css')
-<style>
-    .custom-car-header {
-        background-color: #A2ECD1;
-        color: black;
-    }
-
-    p {
-        line-height: .7;
-    }
-</style>
-<link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="vendor/adminlte/dist/css/medic.css">
 @stop
+
 
 @section('js')
+<script src="vendor/adminlte/dist/js/darkk.js"></script>
 @stop
-
-

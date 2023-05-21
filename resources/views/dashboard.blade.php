@@ -3,16 +3,25 @@
 @section('title', 'Inicio')
 
 @section('content_header')
+<div class="custom-control custom-switch" align="right">
+    <input type="checkbox" class="custom-control-input" id="darkModeToggle">
+    <label class="custom-control-label" for="darkModeToggle">
+        <span id="darkModeIcon" class="fas fa-moon" style="margin-right:10px;"></span>
+        <span id="darkModeText">Modo oscuro</span>
+    </label>
+</div>
+
 <center>
     <br>
-    <h1>BIENVENIDO  {{ Auth::user()->name }}</h1>
+    <h1>Bienvenido  {{ Auth::user()->name }}</h1>
     <br>
     <?php
     date_default_timezone_set('America/Mexico_City');
     $fechaHora = new DateTime();
     $fechaHora->setTimezone(new DateTimeZone('America/Mexico_City'));
     ?>
-    <p><?php echo $fechaHora->format('d-m-Y'); ?></p>
+<p style="font-size: 20px;"><?php echo $fechaHora->format('d-m-Y'); ?></p>
+<p id="time" style="font-size: 18px;"></p>
     </center>
 @stop
 
@@ -64,15 +73,26 @@
     width: 100%;
   }
 }
+.dark-mode-text {
+    color: white;
+}
+
+.light-mode-text {
+    color: black;
+}
 
 </style>
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
-   
-
+<script>
+    
+</script>
+<script src="vendor/adminlte/dist/js/darkk.js"></script>
+<script src="vendor/adminlte/dist/js/horaFecha.js"></script>
 @stop
+
 
 
 

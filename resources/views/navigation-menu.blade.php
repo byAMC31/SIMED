@@ -16,9 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
@@ -213,3 +215,17 @@
         </div>
     </div>
 </nav>
+
+@section('js')
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const darkModeToggle = document.querySelector('.nav-link[data-widget="control-sidebar"]');
+        const body = document.querySelector('body');
+
+        darkModeToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            body.classList.toggle('dark-mode');
+        });
+    });
+</script>
+@stop

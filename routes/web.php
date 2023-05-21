@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Consulta;
 use App\Http\Controllers\contacto;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DireccionController;
@@ -35,6 +36,13 @@ Route::middleware([
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
 Route::get('/expediente', [DireccionController::class, 'show'])->name('expediente.show');
 });
+
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
+    Route::get('/consulta', [Consulta::class, 'show'])->name('consulta.show');
+    });
+
+
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
     Route::get('/expediente/edit', [DireccionController::class, 'edit'])->name('expediente.edit');

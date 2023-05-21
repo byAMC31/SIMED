@@ -1,0 +1,19 @@
+.custom-car-header {
+    background-color: #A2ECD1;
+    color: black;
+}
+
+p {
+    line-height: .7;
+}
+.dark-mode-text {
+color: white;
+}
+
+.light-mode-text {
+color: black;
+}
+
+.is-invalid {
+    border-color: #ff0000;
+}
