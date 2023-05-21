@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\contacto;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\EstudianteController;
@@ -62,4 +63,14 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('/expediente/expedienteedit', [expediente::class, 'update'])->name('informacionMedica.update');
 });
 
+
+
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
+    Route::get('/expediente/contacto_edit', [contacto::class, 'edit'])->name('informacionContacto.edit');
+});
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
+    Route::post('/expediente/contacto_edit', [contacto::class, 'update'])->name('informacionContacto.update');
+});
 

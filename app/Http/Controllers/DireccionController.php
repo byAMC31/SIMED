@@ -21,8 +21,9 @@ class DireccionController extends Controller
     $direccion = $user->estudiante->direccion; // Accediendo a la dirección a través de la relación estudiante
     $estudiante = $user->estudiante; // Accediendo al estudiante
     $expediente = $user->estudiante->expediente; // Accediendo a la dirección a través de la relación 
-
-    return view('expediente', compact('direccion', 'expediente','estudiante'));
+      // Para inspeccionar el valor de $expediente
+    $contacto = $user->estudiante->expediente->contacto;
+    return view('expediente', compact('direccion', 'expediente','estudiante','contacto'));
 }
 
 

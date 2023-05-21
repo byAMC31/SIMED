@@ -33,6 +33,9 @@ class contacto extends Model
         return $this->belongsTo(Direccion::class, 'id_direccion', 'id_direccion');
     }
 
+    public function expediente()
+    {
+        return $this->belongsTo(expediente::class, 'id_contacto', 'id_contacto');
+    }
 
-    
 }

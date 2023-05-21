@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\contacto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,7 +50,6 @@ class Estudiante extends Model
     {
         return $this->hasOne(expediente::class, 'id', 'id');
     }
-
 
 
 }
