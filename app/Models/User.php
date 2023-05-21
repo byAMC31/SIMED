@@ -91,6 +91,10 @@ class User extends Authenticatable
         return $this->hasOne(Estudiante::class, 'id', 'id');
     }
 
+    public function medico()
+    {
+        return $this->hasOne(medico::class, 'id', 'id');
+    }
 
 
 

@@ -15,6 +15,7 @@
             </center>
             <div class="card-body rounded-bottom">
                 <p class="card-text">
+                  
                     <p><label>Email:</label> {{ Auth::user()->email }}</p>
                     <p><label>Nombre:</label> {{ Auth::user()->name }}</p>
                     <p><label>Apellido paterno:</label> {{ $estudiante->appAI}}</p>
@@ -80,7 +81,7 @@
     </div>
 
     <div class="col-md-4">
-        <div class="card shadow rounded" style="width: 20rem;">
+        <div class="card shadow rounded" style="width: 18rem;">
             <center>
                 <h5 class="card-header custom-car-header rounded-top">Información del contacto</h5>
             </center>

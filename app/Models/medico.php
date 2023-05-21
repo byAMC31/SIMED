@@ -5,38 +5,33 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class expediente extends Model
+class Medico extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_expediente';
+    protected $primaryKey = 'id';
 
     // Si el nombre de la tabla no es el plural del nombre de la clase en inglés, 
     // necesitas definir la propiedad $table con el nombre de la tabla
-    protected $table = 'expediente';
+    protected $table = 'estudiante';
 
     // Si los timestamps (created_at y updated_at) no son necesarios en tu tabla, 
     // añade la siguiente línea
     public $timestamps = false;
 
-    protected $fillable = [
-        'tipoSangreEx',
-        'alergiasEx',
-        'notasMedicasEx',
-    ];
+    protected $fillable = ['nombreMe', 'appMe', 'apmMe', 'sexoMe', 'nTelMe', 'nssMe'];
 
 
-    public function contacto()
+    public function user()
     {
-        return $this->belongsTo(contacto::class, 'id_contacto', 'id_contacto');
+        return $this->belongsTo(User::class, 'id', 'id');
     }
-
-    public function estudiante()
+    public function justificantes()
     {
-        return $this->belongsTo(Estudiante::class, 'id', 'id');
+        return $this->hasMany(Justificante::class, 'id_medico','id_medico');
     }
 
     public function consultas(){
-        return $this->hasMany(Consulta::class, 'id_expediente');
+        return $this->hasMany(Consulta::class, 'id_medico');
     }
 }

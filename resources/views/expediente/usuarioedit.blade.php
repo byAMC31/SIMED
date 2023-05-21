@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar expediente')
+@section('title', 'Editar infromacion')
 
 @section('content_header')
 @stop
@@ -18,14 +18,14 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Nombre:</label>
-                            <input type="text" id="name" name="name" value="{{ $estudiante->user->name }}" class="form-control">
+                            <input type="text" id="name" name="name" value="{{ $estudiante->user->name }}" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="estadoDir">Apellido paterno:</label>
+                            <label for="appAI">Apellido paterno:</label>
                             <input type="text" id="appAI" name="appAI" value="{{ $estudiante->appAI }}" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="estadoDir">Apellido materno:</label>
+                            <label for="apmAI">Apellido materno:</label>
                             <input type="text" id="apmAI" name="apmAI" value="{{ $estudiante->apmAI }}" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -44,7 +44,7 @@
                         </div>
 
 
-                        <button type="button" class="btn btn-info" onclick="showConfirmation()">Guardar cambios</button>
+                        <button type="button" class="btn btn-info" onclick="validateAndSubmitForm()">Guardar cambios</button>
                         <a href="/expediente" class="btn btn-danger">Cancelar</a>
 
                     </form>
@@ -66,14 +66,31 @@
     p {
         line-height: .1;
     }
+
+    .is-invalid {
+        border-color: #ff0000;
+    }
 </style>
 @stop
-
 @section('js')
 <script>
-    function showConfirmation() {
-        if (confirm("¿Estás seguro de que deseas guardar los cambios?")) {
+    function validateAndSubmitForm() {
+        let inputs = document.querySelectorAll('#updateForm input[required]');
+        let allFilled = true;
+
+        inputs.forEach(input => {
+            if(input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                allFilled = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        if(allFilled && confirm("¿Estás seguro de que deseas guardar los cambios?")) {
             document.getElementById("updateForm").submit();
+        } else {
+            alert('Por favor, llena todos los campos requeridos en rojo.');
         }
     }
 </script>

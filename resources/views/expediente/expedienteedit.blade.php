@@ -46,7 +46,7 @@
 
                        
 
-                        <button type="button" class="btn btn-info" onclick="showConfirmation()">Guardar cambios</button>
+                        <button type="button" class="btn btn-info" onclick="validateAndSubmitForm()">Guardar cambios</button>
                         <a href="/expediente" class="btn btn-danger">Cancelar</a>
 
                     </form>
@@ -56,7 +56,6 @@
     </div>
 </div>
 @stop
-
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
 <style>
@@ -68,14 +67,31 @@
     p {
         line-height: .1;
     }
+
+    .is-invalid {
+        border-color: #ff0000;
+    }
 </style>
 @stop
-
 @section('js')
 <script>
-    function showConfirmation() {
-        if (confirm("¿Estás seguro de que deseas guardar los cambios?")) {
+    function validateAndSubmitForm() {
+        let inputs = document.querySelectorAll('#updateForm input[required]');
+        let allFilled = true;
+
+        inputs.forEach(input => {
+            if(input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                allFilled = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        if(allFilled && confirm("¿Estás seguro de que deseas guardar los cambios?")) {
             document.getElementById("updateForm").submit();
+        } else {
+            alert('Por favor, llena todos los campos requeridos en rojo.');
         }
     }
 </script>
