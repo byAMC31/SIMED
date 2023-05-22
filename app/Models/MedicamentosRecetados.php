@@ -17,10 +17,10 @@ class MedicamentosRecetados extends Model
     ];
 
     public function receta(){
-        return $this->belongsTo(Receta::class, 'id_receta');
+        return $this->belongsTo(Receta::class, 'id_receta','id_receta');
     }
 
     public function medicamento(){
-        return $this->belongsTo(Medicamento::class, 'id_medicamento');
+        return $this->belongsTo(Medicamento::class, 'id_medicamento','id_medicamento');
     }
 }

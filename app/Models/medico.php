@@ -13,7 +13,7 @@ class Medico extends Model
 
     // Si el nombre de la tabla no es el plural del nombre de la clase en inglés, 
     // necesitas definir la propiedad $table con el nombre de la tabla
-    protected $table = 'estudiante';
+    protected $table = 'medico';
 
     // Si los timestamps (created_at y updated_at) no son necesarios en tu tabla, 
     // añade la siguiente línea
@@ -28,10 +28,10 @@ class Medico extends Model
     }
     public function justificantes()
     {
-        return $this->hasMany(Justificante::class, 'id_medico','id_medico');
+        return $this->hasMany(Justificante::class, 'id_medico','id');
     }
 
-    public function consultas(){
-        return $this->hasMany(Consulta::class, 'id_medico');
+    public function consulta(){
+        return $this->hasMany(Consulta::class, 'id_medico','id');
     }
 }

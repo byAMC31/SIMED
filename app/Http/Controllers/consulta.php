@@ -20,10 +20,19 @@ class Consulta extends Controller
         $consulta = $user->estudiante->expediente->consulta;
         foreach ($consulta as $singleConsulta) {
             $singleConsulta->examenFisico = $singleConsulta->examenFisico;
-            $singleConsulta->receta = $singleConsulta->receta;       
+            $singleConsulta->receta = $singleConsulta->receta;
+            $singleConsulta->medico = $singleConsulta->medico; // Agregando los datos del medico
+            // Añadir esta línea para cargar los medicamentos de la receta
+            foreach ($singleConsulta->receta->medicamentosRecetados as $medRecetado) {
+                $medRecetado->medicamento = $medRecetado->medicamento;
+            }
         }
+    
         return view('consulta', compact('direccion', 'expediente', 'estudiante', 'contacto', 'consulta'));
     }
+    
+    
+    
     
     
     

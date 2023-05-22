@@ -30,7 +30,7 @@ class Consulta extends Model
     ];
 
     public function medico(){
-        return $this->belongsTo(Medico::class, 'id_medico');
+        return $this->belongsTo(Medico::class, 'id_medico','id');
     }
 
     public function expediente(){

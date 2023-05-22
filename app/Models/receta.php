@@ -18,7 +18,7 @@ class Receta extends Model
     ];
 
     public function medicamentosRecetados(){
-        return $this->hasMany(MedicamentosRecetados::class, 'id_receta');
+        return $this->hasMany(MedicamentosRecetados::class, 'id_receta','id_receta');
     }
 
     public function consulta()
