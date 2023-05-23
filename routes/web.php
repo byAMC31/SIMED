@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DireccionController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\expediente;
+use App\Http\Controllers\justificante;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,6 @@ Route::get('/expediente', [DireccionController::class, 'show'])->name('expedient
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
     Route::get('/consulta', [Consulta::class, 'show'])->name('consulta.show');
     });
-
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
@@ -82,3 +82,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::post('/expediente/contacto_edit', [contacto::class, 'update'])->name('informacionContacto.update');
 });
 
+
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {   
+    Route::get('/justificante', [justificante::class, 'show'])->name('justificante.show');
+    });

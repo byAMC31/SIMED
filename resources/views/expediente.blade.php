@@ -28,8 +28,7 @@
                   
                     <p><label>Email:</label> {{ Auth::user()->email }}</p>
                     <p><label>Nombre:</label> {{ Auth::user()->name }}</p>
-                    <p><label>Apellido paterno:</label> {{ $estudiante->appAI}}</p>
-                    <p><label>Apellido materno:</label> {{ $estudiante->apmAI}}</p>
+                   
                     <p><label>Sexo: </label> {{ $estudiante->sexoAI}}</p>
                     <p><label>Numero de telefono: </label> {{ $estudiante->nTelAI}}</p>
                     <p><label>Numero de control: </label> {{ $estudiante->nControl}}</p>

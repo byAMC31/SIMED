@@ -323,7 +323,7 @@ return [
 
         [
             'text' => 'Justificantes',
-            'url'  => 'user/profile',
+            'url'  => 'justificante',
             'icon' => 'fas fa-fw fa-file-alt'
          ],
 

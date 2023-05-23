@@ -28,14 +28,7 @@
                             <label for="name">Nombre:</label>
                             <input type="text" id="name" name="name" value="{{ $estudiante->user->name }}" class="form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="appAI">Apellido paterno:</label>
-                            <input type="text" id="appAI" name="appAI" value="{{ $estudiante->appAI }}" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="apmAI">Apellido materno:</label>
-                            <input type="text" id="apmAI" name="apmAI" value="{{ $estudiante->apmAI }}" class="form-control" required>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="sexoAI">Sexo:</label>
                             <input type="text" id="sexoAI" name="sexoAI" value="{{ $estudiante->sexoAI }}" class="form-control" required>
