@@ -23,6 +23,8 @@ class expediente extends Model
         'tipoSangreEx',
         'alergiasEx',
         'notasMedicasEx',
+        'id',
+        'id_contacto'
     ];
 
 

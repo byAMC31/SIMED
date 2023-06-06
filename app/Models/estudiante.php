@@ -27,7 +27,7 @@ class Estudiante extends Model
         'nTelAI',
         'nssAI',
         'nControl',
-
+        'id_carrera',
         // Agrega aquí cualquier otro campo que quieras que sea asignable en masa
     ];
 
